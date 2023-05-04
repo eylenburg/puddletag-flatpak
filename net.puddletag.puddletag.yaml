@@ -1,10 +1,10 @@
 app-id: net.puddletag.puddletag
 
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: '5.15-22.08'
 sdk: org.kde.Sdk
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: 5.15-21.08
+base-version: 5.15-22.08
 
 command: puddletag
 rename-desktop-file: puddletag.desktop
@@ -33,8 +33,8 @@ modules:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "configobj" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz
-        sha256: a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902
+        url: https://files.pythonhosted.org/packages/cb/87/17d4c6d634c044ab08b11c0cd2a8a136d103713d438f8792d7be2c5148fb/configobj-5.0.8.tar.gz
+        sha256: 6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97
         x-checker-data:
           type: pypi
           name: configobj
@@ -46,8 +46,8 @@ modules:
         --prefix=${FLATPAK_DEST} "mutagen" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/f3/d9/2232a4cb9a98e2d2501f7e58d193bc49c956ef23756d7423ba1bd87e386d/mutagen-1.45.1.tar.gz
-        sha256: 6397602efb3c2d7baebd2166ed85731ae1c1d475abca22090b7141ff5034b3e1
+        url: https://files.pythonhosted.org/packages/b1/54/d1760a363d0fe345528e37782f6c18123b0e99e8ea755022fd51f1ecd0f9/mutagen-1.46.0.tar.gz
+        sha256: 6e5f8ba84836b99fe60be5fb27f84be4ad919bbb6b49caa6ae81e70584b55e58
         x-checker-data:
           type: pypi
           name: mutagen
@@ -58,8 +58,8 @@ modules:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "pillow" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/43/6e/59853546226ee6200f9ba6e574d11604b60ad0754d2cbd1c8f3246b70418/Pillow-9.1.1.tar.gz
-        sha256: 7502539939b53d7565f3d11d87c78e7ec900d3c72945d4ee0e2f250d598309a0
+        url: https://files.pythonhosted.org/packages/00/d5/4903f310765e0ff2b8e91ffe55031ac6af77d982f0156061e20a4d1a8b2d/Pillow-9.5.0.tar.gz
+        sha256: bf548479d336726d7a0eceb6e767e179fbde37833ae42794602631a070d630f1
         x-checker-data:
           type: pypi
           name: pillow
@@ -74,8 +74,8 @@ modules:
       - rm -r /app/share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/puddletag/puddletag/archive/refs/tags/2.1.1.tar.gz
-        sha256: 4ce85a78c49c8cf6b15f2c52c93374ae875b9aa83b529ede68547b68e9b85066
+        url: https://github.com/puddletag/puddletag/archive/refs/tags/2.2.0.tar.gz
+        sha256: fc26a9fcd842e3cd4b97ac83b9fdbd270d73f2a90285e47135e2719dcacc986a
         x-checker-data:
           type: anitya
           project-id: 3727
@@ -83,9 +83,10 @@ modules:
           url-template: https://github.com/puddletag/puddletag/releases/download/$version/puddletag-$version.tar.gz
       - type: file
         path: net.puddletag.puddletag.appdata.xml
-      - type: patch
-        path: dontusenativedialog.patch
-    modules:
+ #     - type: patch
+ #       path: dontusenativedialog.patch
+ # need to update this patch for puddletag version 2.2.0
+ modules:
       - name: chromaprint
         buildsystem: cmake
         config-opts:

@@ -12,9 +12,7 @@ rename-icon: puddletag
 
 finish-args:
   - --device=dri
-  - --filesystem=xdg-download
-  - --filesystem=xdg-music
-  - --filesystem=xdg-pictures
+  - --filesystem=home
   - --share=ipc
   - --socket=fallback-x11
   - --socket=pulseaudio
@@ -86,17 +84,17 @@ modules:
  #     - type: patch
  #       path: dontusenativedialog.patch
  # need to update this patch for puddletag version 2.2.0
- modules:
-      - name: chromaprint
-        buildsystem: cmake
-        config-opts:
-          - -DBUILD_TOOLS=ON
-        sources:
-          - type: archive
-            url: https://github.com/acoustid/chromaprint/releases/download/v1.5.1/chromaprint-1.5.1.tar.gz
-            sha256: a1aad8fa3b8b18b78d3755b3767faff9abb67242e01b478ec9a64e190f335e1c
-            x-checker-data:
-              type: anitya
-              project-id: 286
-              stable-only: true
-              url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz
+
+  - name: chromaprint
+    buildsystem: cmake-ninja
+ #   config-opts:
+ #     - -DBUILD_TOOLS=ON
+    sources:
+      - type: archive
+        url: https://github.com/acoustid/chromaprint/releases/download/v1.5.1/chromaprint-1.5.1.tar.gz
+        sha256: a1aad8fa3b8b18b78d3755b3767faff9abb67242e01b478ec9a64e190f335e1c
+        x-checker-data:
+          type: anitya
+          project-id: 286
+          stable-only: true
+          url-template: https://github.com/acoustid/chromaprint/releases/download/v$version/chromaprint-$version.tar.gz

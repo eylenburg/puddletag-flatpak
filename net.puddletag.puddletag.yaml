@@ -12,7 +12,8 @@ rename-icon: puddletag
 
 finish-args:
   - --device=dri
-  - --filesystem=home
+  - --filesystem=xdg-music
+  - --filesystem=xdg-download
   - --share=ipc
   - --socket=fallback-x11
   - --socket=pulseaudio

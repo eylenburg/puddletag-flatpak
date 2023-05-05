@@ -82,14 +82,9 @@ modules:
           url-template: https://github.com/puddletag/puddletag/releases/download/$version/puddletag-$version.tar.gz
       - type: file
         path: net.puddletag.puddletag.appdata.xml
- #     - type: patch
- #       path: dontusenativedialog.patch
- # need to update this patch for puddletag version 2.2.0
 
   - name: chromaprint
     buildsystem: cmake-ninja
- #   config-opts:
- #     - -DBUILD_TOOLS=ON
     sources:
       - type: archive
         url: https://github.com/acoustid/chromaprint/releases/download/v1.5.1/chromaprint-1.5.1.tar.gz
